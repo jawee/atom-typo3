@@ -2,7 +2,7 @@
   "name": "typo3",
   "version": "0.0.0",
   "description": "Typo3 support for Atom",
-  "repository": "https://github.com/atom/typo3",
+  "repository": "https://github.com/jawee/atom-typo3.git",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
