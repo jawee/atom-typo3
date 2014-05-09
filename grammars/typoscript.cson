@@ -1,0 +1,178 @@
+'fileTypes': [
+  'ext_typoscript_setup.txt'
+  'ext_typoscript_constants.txt'
+  'page-config.ts'
+  'setup.txt'
+]
+'foldingStartMarker': '/\\*\\*|\\{\\s*$'
+'foldingStopMarker': '\\*\\*/|^\\s*\\}'
+'include': '#typo_defined_properties'
+'name': 'TypoScript'
+'patterns': [
+  {
+    'captures':
+      '0':
+        'name': 'support.function.delete.typoscript'
+      '1':
+        'name': 'support.function.delete.typoscript'
+    'comment': 'deleting/clearing of a typoscript object'
+    'contentName': 'support.function.delete.typoscript'
+    'match': '^.[^=]*(>)'
+    'name': 'support.function.delete.typoscript'
+  }
+  {
+    'match': '\\s*#.*'
+    'name': 'comment.line.number-sign'
+  }
+  {
+    'match': '^\\s*/.*'
+    'name': 'comment.line.slash-sign'
+  }
+  {
+    'begin': '(<\\s+)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.operator.typoscript'
+    'comment': 'one typoscript object copied to another'
+    'end': '(.+$)'
+    'endCaptures':
+      '1':
+        'name': 'support.function.copy.typoscript'
+    'patterns': [
+      {
+        'include': '#typo_top_level_objects'
+      }
+      {
+        'include': '#typo_stdWrap_all'
+      }
+      {
+        'include': '#typo_defined_properties'
+      }
+    ]
+  }
+  {
+    'begin': '='
+    'beginCaptures':
+      '0':
+        'name': 'keyword.operator'
+    'comment': 'everything after the first equal sign'
+    'end': '($)'
+    'name': 'string.interpolated.typoscript'
+    'patterns': [
+      {
+        'include': '#typo_content_objects'
+      }
+      {
+        'include': '#typo_defined_properties'
+      }
+      {
+        'include': '#typo_constant'
+      }
+      {
+        'include': 'text.html.basic'
+      }
+    ]
+  }
+  {
+    'begin': '\\('
+    'comment': 'multiline value'
+    'end': '\\)'
+    'name': 'support.other.multiline'
+    'patterns': [
+      {
+        'include': '#typo_content_objects'
+      }
+      {
+        'include': '#typo_defined_properties'
+      }
+    ]
+  }
+  {
+    'include': '#typo_top_level_objects'
+  }
+  {
+    'include': '#typo_stdWrap_all'
+  }
+  {
+    'include': '#typo_defined_properties'
+  }
+  {
+    'include': '#typo_constant'
+  }
+  {
+    'begin': '_CSS_DEFAULT_STYLE \\('
+    'end': '^\\)'
+    'patterns': [
+      {
+        'include': 'source.css'
+      }
+    ]
+  }
+]
+'repository':
+  'typo_constant':
+    'match': '{\\$.*}'
+    'name': 'variable.other.typoscript'
+  'typo_content_objects':
+    'comment': 'all content objects and things defined by typo3 that sit on the right side of the equal sign'
+    'match': '(_CSS_DEFAULT_STYLE|_DEFAULT_PI_VARS|_GIFBUILDER|_LOCAL_LANG|CARRAY|CASE|CLEARGIF|COA|COA_INT|COBJ_ARRAY|COLUMNS|CONFIG|CONSTANTS|CONTENT|CTABLE|CType|DB|DOCUMENT_BODY|EDITPANEL|EFFECT|FE_DATA|FE_TABLE|FEData|FILE|FORM|FRAME|FRAMESET|GIFBUILDER|global|globalString|globalVar|GMENU|GMENU_FOLDOUT|GMENU_LAYERS|GP|HMENU|HRULER|HTML|IENV|IMAGE|IMG_RESOURCE|IMGMENU|IMGMENUITEM|IMGTEXT|INCLUDE_TYPOSCRIPT|includeLibs|JSMENU|JSMENUITEM|LIT|LOAD_REGISTER|META|MULTIMEDIA|OTABLE|PAGE|PAGE_TARGET|PAGE_TSCONFIG_ID|PAGE_TSCONFIG_IDLIST|PAGE_TSCONFIG_STR|PHP_SCRIPT|PHP_SCRIPT_EXT|PHP_SCRIPT_INT|RECORDS|REMOTE_ADDR|RESTORE_REGISTER|RTE|SEARCHRESULT|SHARED|TCAdefaults|TCEFORM|TCEMAIN|TEMPLATE|TEXT|TMENU|TMENU_LAYERS|TMENUITEM|TSFE|USER|USER_INT|userFunc)\\b'
+    'name': 'support.constant.cobject.typoscript'
+  'typo_defined_properties':
+    'comment': 'all misc keywords and stdWrap properties, etc'
+    'match': '\\b(_offset|absRefPrefix|accessibility|accessKey|addAttributes|addExtUrlsAndShortCuts|addItems|additionalHeaders|additionalParams|addQueryString|adjustItemsH|adjustSubItemsH|adminPanelStyles|after|afterImg|afterImgLink|afterImgTagParams|afterROImg|afterWrap|align|allow|allowCaching|allowedAttribs|allowedClasses|allowedCols|allowEdit|allowedNewTables|allowNew|allowTags|allowTVlisting|allStdWrap|allWrap|alternateBgColors|alternativeSortingField|alternativeTempPath|altImgResource|altLabels|altTarget|altText|altUrl|altWrap|always|alwaysActivePIDlist|alwaysLink|andWhere|angle|antiAlias|applyTotalH|applyTotalW|archive|archiveTypoLink|arrayReturnMode|arrowACT|arrowImgParams|arrowNO|ATagAfterWrap|ATagBeforeWrap|ATagParams|ATagTitle|attribute|autoInsertPID|autoLevels|autonumber|backColor|background|badMess|baseURL|before|beforeImg|beforeImgLink|beforeImgTagParams|beforeROImg|beforeWrap|begin|beLoginLinkIPList|beLoginLinkIPList_login|beLoginLinkIPList_logout|bgCol|bgImg|blankStrEqFalse|blur|bm|bodyTag|bodyTagAdd|bodyTagCObject|bodyTagMargins|bodytext|border|borderCol|bordersWithin|borderThick|bottomBackColor|bottomContent|bottomHeight|bottomImg|bottomImg_mask|bullet|bulletlist|cache_clearAtMidnight|cache_period|caption|caption_stdWrap|captionAlign|captionHeader|captionSplit|casesensitiveComp|cellpadding|cellspacing|centerImgACT|centerImgCUR|centerImgNO|centerLeftImgACT|centerLeftImgCUR|centerLeftImgNO|centerRightImgACT|centerRightImgCUR|centerRightImgNO|charcoal|charMapConfig|check|class|classesAnchor|classesCharacter|classesImage|classesParagraph|clear|clearCache|clearCache_disable|clearCache_pageGrandParent|clearCache_pageSiblingChildren|clearCacheCmd|clearCacheLevels|clearCacheOfPages|clickTitleMode|clipboardNumberPads|cMargins|cObjNum|collapse|color|color1|color2|color3|color4|colors|colour|colPos_list|colRelations|cols|colSpace|comment_auto|commentWrap|compensateFieldWidth|compX|compY|conf|constants|content_from_pid_allowOutsideDomain|count_HMENU_MENUOBJ|count_menuItems|count_MENUOBJ|create|CSS_inlineStyle|curUid|cWidth|date_stdWrap|datePrefix|debugFunc|debugItemConf|debugRenumberedObject|default|defaultAlign|defaultCmd|defaultHeaderType|defaultOutput|defaultType|delete|denyTags|depth|DESC|dimensions|directionLeft|directionUp|disableAdvanced|disableAllHeaderCode|disableAltText|disableBigButtons|disableCacheSelector|disableCharsetHeader|disabled|disableDocSelector|disableHideAtCopy|disableIconLinkToContextmenu|disableNewContentElementWizard|disableNoMatchingValueElement|disablePageExternalUrl|disablePrefixComment|disablePrependAtCopy|disableSearchBox|disableSingleTableView|displayActiveOnLoad|displayContent|displayFieldIcons|displayIcons|displayMessages|displayQueries|displayRecord|displayTimes|distributeX|distributeY|DIV|doctype|doctypeSwitch|doktype|doNotLinkIt|doNotShowLink|doNotStripHTML|dontCheckPid|dontFollowMouse|dontHideOnMouseUp|dontLinkIfSubmenu|dontWrapInTable|doublePostCheck|dWorkArea|edge|edit_docModuleUplaod|editFieldsAtATime|editFormsOnPage|editIcons|editNoPopup|elements|emailMess|emboss|enable|encapsLinesStdWrap|encapsTagList|entryLevel|equalH|everybody|excludeDoktypes|excludeUidList|expAll|expand|explode|ext|externalBlocks|extTarget|face|fe_adminLib|fieldOrder|fields|fieldWrap|file|file1|file2|file3|file4|file5|filelist|firstLabel|firstLabelGeneral|fixAttrib|flip|flop|foldSpeed|foldTimer|fontColor|fontFile|fontOffset|fontSize|fontSizeMultiplicator|forceTemplateParsing|forceTypeValue|format|frame|frameReloadIfNotInFrameset|frameSet|freezeMouseover|ftu|function|gamma|gapBgCol|gapLineCol|gapLineThickness|gapWidth|get|getBorder|getLeft|getRight|globalNesting|goodMess|gray|group|groupBy|groupid|header|headerComment|headerData|headerSpace|headTag|height|hidden|hiddenFields|hide|hideButCreateMap|hideMenuTimer|hideMenuWhenNotOver|hidePStyleItems|highColor|history|hover|hoverStyle|HTMLparser_tags|htmlTag_dir|htmlTag_langKey|htmlTag_setParams|http|icon|icon_image_ext_list|icon_link|iconCObject|image|image_compression|image_effects|image_frames|imageLinkWrap|imagePath|images|imageWrapIfAny|imgList|imgMap|imgMapExtras|imgMax|imgNameNotRandom|imgNamePrefix|imgObjNum|imgParams|imgPath|imgStart|import|inc|includeCSS|includeLibrary|includeNotInMenu|incT3Lib_htmlmail|index|index_descrLgd|index_enable|index_externals|inlineStyle2TempFile|innerStdWrap|innerStdWrap_all|input|inputLevels|insertClassesFromRTE|insertDmailerBoundaries|intensity|intTarget|invert|IProcFunc|itemArrayProcFunc|itemH|items|itemsProcFunc|iterations|join|JSWindow|JSwindow_params|jumpurl|jumpUrl|jumpurl_enable|jumpurl_mailto_disable|jumpUrl_transferSession|keep|keepEntries|keepNonMatchedTags|key|label|labelStdWrap|labelWrap|language|language_alt|languageField|layer_menu_id|layerStyle|left|leftImgACT|leftImgCUR|leftImgNO|leftjoin|leftOffset|levels|leveluid|limit|line|lineColor|lineThickness|linkPrefix|linkTitleToSelf|linkVars|linkWrap|listOnlyInSingleTableView|lm|locale_all|localNesting|locationData|lockFilePath|lockPosition|lockPosition_addSelf|lockPosition_adjust|longdescURL|lowColor|lower|LR|mailto|main|mainScript|makelinks|markerWrap|mask|max|maxAge|maxAgeDays|maxChars|maxH|maxHeigh|maxItems|maxW|maxWidth|maxWInText|menuBackColor|menuHeight|menuName|menuOffset|menuWidth|message_page_is_being_generated|message_preview|meta|metaCharset|method|min|minH|minItems|minW|mode|MP_defaults|MP_disableTypolinkClosestMPvalue|MP_mapRootPoints|name|nesting|netprintApplicationLink|newPageWiz|newRecordFromTable|newWindow|newWizards|next|niceText|no_cache|no_search|noAttrib|noBlur|noCols|noCreateRecordsLink|noLink|noLinkUnderline|noMatchingValue_label|nonCachedSubst|nonTypoTagStdWrap|nonTypoTagUserFunc|nonWrappedTag|noOrderBy|noPageTitle|noRows|noScaleUp|noStretchAndMarginCells|notification_email_charset|notification_email_encoding|notification_email_urlmode|noTrimWrap|noValueInsert|obj|offset|onlyCurrentPid|opacity|orderBy|outline|outputLevels|overrideAttribs|overrideEdit|overrideId|overrideWithExtension|pageFrameObj|pageGenScript|pageTitleFirst|parameter|params|parser|password|path|permissions|pid_list|pidInList|pixelSpaceFontSizeRef|plaintextLib|plainTextStdWrap|postLineBlanks|postLineChar|postLineLen|preBlanks|prefix|prefixLocalAnchors|prefixRelPathWith|preLineBlanks|preLineChar|preLineLen|preserveEntities|prev|previewBorder|prevnextToSection|printheader|proc|processScript|properties|protect|protectLvar|publish_levels|QEisDefault|quality|radio|radioWrap|range|recipient|recursive|redirect|reduceColors|register|relativeToParentLayer|relativeToTriggerItem|relPathPrefix|remap|remapTag|removeDefaultJS|removeIfEquals|removeIfFalse|removeItems|removeObjectsOfDummy|removePrependedNumbers|removeTags|removeWrapping|renderCharset|renderWrap|reset|resources|resultObj|returnLast|rightImgACT|rightImgCUR|rightImgNO|rightjoin|rm|rmTagIfNoAttrib|RO_chBgColor|rotate|rows|rowSpace|RTEfullScreenWidth|rules|sample|saveDocNew|secondRow|section|sectionIndex|select|select_key|selectFields|separator|set|setfixed|setFixedHeight|setFixedWidth|setJS_mouseOver|setJS_openPic|setOnly|shadow|sharpen|shear|short|shortcut|shortcutFrame|shortcutIcon|show|showAccessRestrictedPages|showActive|showClipControlPanelsDespiteOfCMlayers|showFirst|showHiddenPages|showHiddenRecords|showPageIdWithTitle|showTagFreeClasses|simulateDate|simulateStaticDocuments|simulateStaticDocuments_addTitle|simulateStaticDocuments_dontRedirectPathInfoError|simulateStaticDocuments_noTypeIfNoTitle|simulateStaticDocuments_pEnc|simulateStaticDocuments_pEnc_onlyP|simulateUserGroup|singlePid|site_author|site_keywords|sitetitle|siteUrl|size|smallFormFields|solarize|sorting|source|spaceBelowAbove|spaceLeft|spaceRight|spacing|spamProtectEmailAddresses|spamProtectEmailAddresses_atSubst|spamProtectEmailAddresses_lastDotSubst|special|splitChar|splitRendering|src|stayFolded|stdheader|stdWrap2|styles|stylesheet|submenuObjSuffixes|subMenuOffset|submit|subst_elementUid|substMarksSeparately|swirl|sword|sword_noMixedCase|SWORD_PARAMS|sword_standAlone|sys_language_mode|sys_language_overlay|sys_language_softMergeIfNotBlank|sys_language_uid|table|tableCellColor|tableParams|tables|tableStdWrap|tableStyle|tableWidth|tags|target|TDparams|templateContent|templateFile|text|textarea|textMargin|textMargin_outOfText|textMaxLength|textObjNum|textPos|thickness|tile|time_stdWrap|tipafriendLib|title|titleTagFunction|titleText|tm|token|topOffset|totalWidth|transparentBackground|transparentColor|tsdebug_tree|type|typeNum|types|typolinkCheckRootline|uidInList|unset|uploads|upper|useCacheHash|useLargestItemX|useLargestItemY|user|user_task|userdefined|userfunction|userid|userIdColumn|USERNAME_substToken|userProc|value|valueArray|wave|where|width|wiz|wordSpacing|workArea|wrap|wrap1|wrap2|wrap3|wrapAfterTags|wrapFieldName|wrapItemAndSub|wrapNonWrappedLines|wraps|xhtml_cleaning|xmlprologue|xPosOffset|yPosOffset|admPanel|alt_print|browser|cache|CHECK|cObj|COMMENT|config|content|CSS_inlineStyle|dataArray|dayofmonth|dayofweek|device|displayList|displaySingle|dynCSS|edit|folder|folderTree|foldoutMenu|Functions|gmenu_foldout|gmenu_layers|hostname|hour|imgList|imgResource|imgText|info|IP|jsmenu|LABEL|layout|lib|loginUser|marks|minute|mod|month|noResultObj|options|page|pageTree|PIDinRootline|PIDitemDisplay|PIDupinRootline|plugin|postform|postform_newThread|preview|publish|RADIO|renderObj|REQ|RTE|RTE_compliant|select|setup|stat|stat_apache|stat_apache_logfile|stat_apache_noHost|stat_apache_notExtended|stat_apache_pagenames|stat_excludeBEuserHits|stat_excludeIPList|stat_mysql|stat_titleLen|stat_typeNumList|stdWrap|subparts|system|template|treeLevel|tsdebug|url|useragent|userFunc|version|workOnSubpart)\\b'
+    'name': 'variable.parameter'
+  'typo_menu_item':
+    'begin': '.+\\.(NO|ACT|RO)\\s*{'
+    'end': '}'
+    'name': 'meta.menuitem.typoscript'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+      {
+        'include': '#typo_objects_accepting_stdWrap'
+      }
+    ]
+  'typo_objects_accepting_stdWrap':
+    'comment': 'properties which allow stdWrap on the next level'
+    'match': '\\b(setCurrent|filelist|override|ifEmpty|ifBlank|stdWrap|innerWrap|innerWrap2|wrapAlign|spaceBefore|spaceAfter|outerWrap|stdWrap)\\b'
+    'name': 'support.function.stdWrap.typoscript'
+  'typo_stdWrap_all':
+    'name': 'support.function.typoscript'
+    'patterns': [
+      {
+        'include': '#typo_objects_accepting_stdWrap'
+      }
+      {
+        'include': '#typo_stdWrap_contentSupplying'
+      }
+      {
+        'include': '#typo_stdWrap_overrideConditions'
+      }
+      {
+        'include': '#typo_stdWrap_conditions'
+      }
+      {
+        'include': '#typo_stdWrap_parseData'
+      }
+    ]
+  'typo_stdWrap_conditions':
+    'comment': 'properties for if'
+    'match': '\\b(isTrue|isFalse|isPositive|isGreaterThan|isLessThan|equals|isInList|value|negate|directReturn)\\b'
+    'name': 'support.function.conditions.typoscript'
+  'typo_stdWrap_contentSupplying':
+    'comment': 'content supplying stdWrap properties'
+    'match': '\\b(current|setContentToCurrent|setCurrent|lang|data|field|cObject|numRows|filelist|preUserFunc)\\b'
+    'name': 'support.function.contentSupplying.typoscript'
+  'typo_stdWrap_overrideConditions':
+    'comment': 'override conditions for stdWrap'
+    'match': '\\b(override|preIfEmptyListNum|ifEmpty|ifBlank|listNum|trim|stdWrap|required|if|fieldRequired)\\b'
+    'name': 'support.function.override.typoscript'
+  'typo_stdWrap_parseData':
+    'comment': 'parse data functions for stdWrap'
+    'match': '\\b(csConv|parseFunc|HTMLparser|split|prioriCalc|char|intval|date|strftime|age|case|bbytes|subtring|removeBadHTML|stripHtml|crop|rawUrlEncode|htmlSpecialCharacters|doubleBrTag|br|brTag|encapsLines|keywords|innerWrap|innerWrap2|fontTag|addParams|textStyle|tableStyle|filelink|postCObject|preCObject|wrapAlign|typolink|TCAselectItem|spaceBefore|spaceAfter|space|wrap|noTrimWrap|wrap2|wrap3|dataWrap|prepend|append|outerWrap|insertData|offsetWrap|postUserFunc|postUserFuncInt|prefixComment|editIcons|editPanel|debug|debugFunc|debugData)\\b'
+    'name': 'support.function.typoscript'
+  'typo_top_level_objects':
+    'match': '\\b(config|lib|styles|(plugin.tx_\\w*)|temp|config|page|tt_\\w*)\\b'
+    'name': 'variable.language.top_level.typoscript'
+'scopeName': 'source.typoscript'

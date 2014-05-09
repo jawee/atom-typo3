@@ -1,0 +1,100 @@
+'.source.typoscript':
+  'Base RTE Configuration':
+    'prefix': 'rte'
+    'body': 'RTE >\nRTE.default.contentCSS = ${1:fileadmin/templates/master.css}\nRTE.default.classesCharacter = ${2:classes,from,stylesheet,to,appear,in,RTE,editor}\nRTE.config.tt_content.bodytext.showButtons = textstylelabel, textstyle, formatblock,left, center, justifyfull,outdent, indent, textindicator, line, link, image, findreplace, spellcheck, chMode, removeformat, copy, cut, paste, undo, redo, showhelp, about\nRTE.config.tt_news.bodytext.showButtons = textstylelabel, textstyle, formatblock,left, center, justifyfull,outdent, indent, textindicator, line, link, image, findreplace, spellcheck, chMode, removeformat, copy, cut, paste, undo, redo, showhelp, about\nRTE.default.hideButtons = underline, strikethrough, subscript, superscript\nRTE.default.proc { \n  allowTags = b,i,strong,em,table, tbody, tr, th, td, h1, h2, h3, h4, h5, h6, div, p, br, span, ul, ol, li, pre, blockquote, strong, em, a, img, hr, tt, q, cite, abbr, acronym, address\n  overruleMode = ts_css\n  dontConvBRtoParagraph = 1\n  internalizeFontTags = 1\n  allowTagsOutside = img,hr,address\n  denyTags = sup,sub,strike,center,u\n  allowedClasses = fancy,neato,ugly\n  entryHTMLparser_db = 1\n  entryHTMLparser_db {\n    allowTags < RTE.default.proc.allowTags\n    xhtml_cleaning = 1\n    htmlSpecialChars = 0\n    noAttrib = b, i, u, strike, sub, sup, strong, em, quote, blockquote, cite, tt, br, center\n    tags.hr.allowedAttribs = class\n    tags.span.allowedAttribs = class\n    tags.b.remap = strong\n    tags.i.remap = em\n    removeTags = sdfield\n    keepNonMatchedTags = protect \n  }\n}'
+  'CASE Object':
+    'prefix': 'case'
+    'body': '${1:temp.something} = CASE\n$1 {    \n\tkey.field = ${2:layout}\n    if.isTrue.field = header\n    stdWrap.wrap = | <br />\n    default = TEXT\n    default {\n  \t\t# stuff to happen if not matching rest of case\n\t}\n\t$1.${3:1} = TEXT\n\t$1.$3 {\n\t\t# Stuff to happen if matches\n\t}\n\t$0\n}\n'
+  'CLEARGIF Object':
+    'prefix': 'cgif'
+    'body': '${1:temp.something} = CLEARGIF\n$1 {\n\theight = ${2:1}\n\twidth = ${3:1}\n\twrap = ${4:| <br />}\n}'
+  'COA Object':
+    'prefix': 'coa'
+    'body': '${1:temp.something} = COA\n$1 {\n\t10 = $2\n\t20 = $3\n}\n'
+  'CONTENT Object':
+    'prefix': 'content'
+    'body': '${1:temp.something} = CONTENT\n$1 {\n\ttable = ${2:tt_content}\n\tselect = {\n\t\tpidInList = ${3:this}\n\t\torderBy = ${4:sorting}\n\t}\n}\n'
+  'CTABLE Object':
+    'prefix': 'ctable'
+    'body': '${1:temp.something} = CTABLE\n$1 {\n  offset = 5, 0\n  tableParams = border=0 width=400\n  cWidth=400\n  c.1 = CONTENT\n  c.1.table = tt_content\n  c.1.select {\n    pidInList = this\n    orderBy = sorting\n  }\n  tm.10 < temp.sidemenu\n  tm.TDParams = valign=top\n}\n'
+  'FILE Object':
+    'prefix': 'file'
+    'body': '${1:temp.something} = FILE\n$1 {\n\tfile = ${0:file/resource}\n}\n'
+  'HMENU Object':
+    'prefix': 'hmenu'
+    'body': '${1:temp.something} = HMENU\n$1 {\n\t1 = ${2:TMENU}\n\t1 = {\n\t\tNO = 1\n\t}\n}\n'
+  'HTML Object':
+    'prefix': 'html'
+    'body': '${1:temp.something} = HTML\n$1 {\n\tvalue = $0\n}\n'
+  'IMAGE Object':
+    'prefix': 'image'
+    'body': '${1:temp.something} = IMAGE\n$1 {\n\tfile = ${0:imgresource}\n}\n'
+  'IMG_RESOURCE Object':
+    'prefix': 'img'
+    'body': '${1:temp.something} = IMG_RESOURCE\n$1 {\n\tfile = ${0:fileadmin/filepath/filename.ext}\n}'
+  'PAGE Object':
+    'prefix': 'page'
+    'body': '${1:page} = PAGE\n$1.typeNum = 0 \n$1.stylesheet = ${2:pathToStylesheet}\n$1.10 < ${3:temp.templateObject}\n$1.headerData.10 < ${4:temp.headTemplateObject}\n# Set pages to be indexed for searching\n$1.config.index_enable = 1\n\n# uncomment to allow external docs to be indexed - requires server tools to work\n# $1.config.index_externals = 1\n'
+  'RECORDS Object':
+    'prefix': 'records'
+    'body': '${1:temp.something} = RECORDS\n$1 {\n\tsource.field = ${2:records}\n\ttables = ${3:tt_address}\n\tconf.$3 < $3.default\n}\n'
+  'TEMPLATE Object':
+    'prefix': 'template'
+    'body': '${1:temp.Template} = TEMPLATE\n$1 {\n\trelPathPrefix = ${2:pathToTemplateRoot}\n\t\n\ttemplate = FILE\n\ttemplate.file = ${3:file/path/to/template}\n\n\tworkOnSubpart = DOCUMENT_${5:BODY|HEADER}\n\n\tsubparts.${4:subpartid} < {$6:temp.object}\n\n}\n'
+  'TEXT Object':
+    'prefix': 'text'
+    'body': '${1:temp.something} = TEXT\n$1 {\n\tvalue = $0\n}\n'
+'.text.html.basic':
+  'FE User Field':
+    'prefix': 'sub'
+    'body': '<!--###SUB_INCLUDED_FIELD_${1:fieldname}###-->\n    <tr valign="top" bgcolor="#E7F0FA">\n        <td>\n        \t<p>###LABEL_${1/.*/\\U$0/}### ###REQUIRED_${1/.*/\\U$0/}###</p>\n        </td>\n    <td>\n    \t<!--  ###SUB_ERROR_FIELD_$1### begin -->\n    <p>###EVAL_ERROR_FIELD_$1###</p>\n    \t<!--  ###SUB_ERROR_FIELD_$1### end   -->\n\n    <!--###SUB_REQUIRED_FIELD_$1###-->\n    <p>###MISSING_${1/.*/\\U$0/}###</p>\n    <!--###SUB_REQUIRED_FIELD_$1###-->\n    <p>###TCA_INPUT_$1###</p>\n    </td>\n    </tr>\n<!--###SUB_INCLUDED_FIELD_$1###-->'
+'.text.xml.t3datastructure':
+  'Insert Flexform ROOT Structure':
+    'prefix': 'froot'
+    'body': '<ROOT>\n\t<TCEforms>\n\t\t<sheetTitle>LLL:EXT:${1:path/to/locallang_db.php:tt_content.pi_flexform.sheet_title}</sheetTitle>\n\t</TCEforms>\n\t<type>array</type>\n\t<el>\n\t\t<${2:field_templateObject}>\n\t\t\t$0\n\t\t</$2>\n\t</el>\n</ROOT>\n\n'
+  'Insert Sheets Snippet':
+    'prefix': 'sheet'
+    'body': '<sheets>\n    <sDEF>$1</sDEF>\n    <s_${2:sheet1}>$3</s_$2>\n</sheets>\n'
+  'Insert TCEforms Snippet':
+    'prefix': 'tce'
+    'body': '<TCEforms>\n\t<label>LLL:EXT:${1:/path/to/locallang_db.php:tt_content.pi_flexform.sheet_title}</label>\n\t<config>\n\t\t<type>$0</type>\n\t</config>\n</TCEforms>\n'
+  'Insert label Snippet':
+    'prefix': 'label'
+    'body': '<label index="${1:tt_content.list_type_pi1}">${2:Label Text}</label>\n${4:label}$0'
+  'Insert numIndex Snippet':
+    'prefix': 'ni'
+    'body': '<numIndex index="${1:0}" type="array">\n\t<numIndex index="0">LLL:EXT:$2</numIndex>\n\t<numIndex index="1">$3</numIndex>\n</numIndex>\n${4:ni}$0\n'
+'.source.php':
+  'Insert Template getSubpart':
+    'prefix': 'tmpl'
+    'body': '\\$this->templateCode = \\$this->cObj->getSubpart(\\$this->templateFile, \'###${1:TEMPLATE_LISTING}###\');\n$0'
+  'Insert debug (CCDebug)':
+    'prefix': 'debug'
+    'body': 'if (TYPO3_DLOG) debug(\\$${1:variable_name},\'$1$2\'${3:,__LINE__,__FILE__});\n$0'
+  'Insert debugRows':
+    'prefix': 'debug'
+    'body': 'if (TYPO3_DLOG) t3lib_div::debugRows(\\$${1:array_of_rows}${2:,\'${3:Table Header}\'});\n$0\n'
+  'Insert debug_lastBuiltQuery':
+    'prefix': 'debug'
+    'body': '\\$GLOBALS[\'TYPO3_DB\']->store_lastBuiltQuery = 1;\nif (TYPO3_DLOG) debug(\\$GLOBALS[\'TYPO3_DB\']->debug_lastBuiltQuery,\'${1:Last Query}\'${2:,__LINE__,__FILE__});\n$0'
+  'Insert debug_trail':
+    'prefix': 'debug'
+    'body': 'if (TYPO3_DLOG) t3lib_div::debug_trail();\n$0\n'
+  'Insert print_array':
+    'prefix': 'debug'
+    'body': 'if (TYPO3_DLOG) t3lib_div::print_array(\\$${1:array_name});\n$0\n'
+  'Insert view_array':
+    'prefix': 'debug'
+    'body': 'if (TYPO3_DLOG) t3lib_div::view_array(\\$${1:array_name});\n$0\n'
+  'Substitute Array Code Snippet':
+    'prefix': 'sub'
+    'body': '\\$substArray[\'###${2:${1/.*/\\U$0/}}###\'] = \\$this->getFieldContent(\'${1:markerid}\');\n${3:sub}$0'
+  'execSELECTQuery':
+    'prefix': 't3db'
+    'body': '\\$res = \\$GLOBALS[\'TYPO3_DB\']->exec_SELECTquery(\'${1:*}\',\'tx_${2:table_name}\',\'${3:WHERE}\'${4: . \\$this->cObj->enableFields(\'tx_$2\')},\'${5:group}\',\'${6:order}\',\'${7:limit}\');\n$0'
+  'execUPDATEQuery':
+    'prefix': 't3db'
+    'body': '\\$res = \\$GLOBALS[\'TYPO3_DB\']->exec_UPDATEquery(\'tx_${1:table_name}\',\'${2:WHERE}\',${3:fields_values_array}${5:,no_quote_fields});\n$0'
+  't3lib_div::debug':
+    'prefix': 't3debug'
+    'body': 't3lib_div::debug($1,\'${1/[\']/\\\'/g}\');'
