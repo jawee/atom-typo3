@@ -1,0 +1,80 @@
+'*':
+  'f:be.container':
+    'prefix': 'f:be.container'
+    'body': '<f:be.container pageTitle="$1">\n\t$2\n</f:be.container>'
+  'f:be.menus.actionMenu':
+    'prefix': 'f:be.menus.actionMenu'
+    'body': '<f:be.menus.actionMenu>\n\t<f:be.menus.actionMenuItem label="${1:<f:translate key="$2" />}" controller="$3" action="$4" />\n\t$5\n</f:be.menus.actionMenu>'
+  'f:be.menus.actionMenuItem':
+    'prefix': 'f:be.menus.actionMenuItem'
+    'body': '<f:be.menus.actionMenuItem label="${1:<f:translate key="$2" />}" controller="$3" action="$4" />'
+  'f:cObject':
+    'prefix': 'f:cObject'
+    'body': '<f:cObject typoscriptObjectPath="$1" />'
+  'f:count':
+    'prefix': 'f:count'
+    'body': '<f:count subject="{$1}" />'
+  'f:debug':
+    'prefix': 'f:debug'
+    'body': '<f:debug title="$1">{$1}</f:debug>'
+  'f:else':
+    'prefix': 'f:else'
+    'body': '<f:else>\n\t$4\n</f:else>'
+  'f:escape':
+    'prefix': 'f:escape'
+    'body': '<f:escape ${1:type="$2"}>$3</f:escape>$4'
+'.text.html':
+  'f:for':
+    'prefix': 'f:for'
+    'body': '<f:for each="{$1}" as="$2"${3:key="$4" }>\n\t$5\n</f:for>'
+  'f:form':
+    'prefix': 'f:form'
+    'body': '<f:form action="$1" ${2:controller="$3" }${4:object="{$5\\}" }${6:name="$7" }${8:package="$9" }${10:enctype="${11:multipart/form-data}" }>\n\t$12\n</f:form>'
+  'f:form.errors':
+    'prefix': 'f:form.errors'
+    'body': '<f:form.errors>\n\t{error.code} / {error.message}\n\t${1:<ul>\n\t\t<f:for each="{error.errors}" as="errorDetail">\n\t\t\t<li>{errorDetail.code\\} / {errorDetail.message\\} / {errorDetail.propertyName\\}</li>\n\t\t\t${2:<ul>\n\t\t\t\t<f:for each="{errorDetail.errors\\}" as="errorSuperDetail">\n\t\t\t\t\t<li>{errorSuperDetail.code\\}  {errorDetail.message\\}</li>\n\t\t\t\t</f:for>\n\t\t\t</li>\n\t\t</ul>}\n\t\t</f:for>\n\t</ul>}\n</f:form.errors>$3\n'
+  'f:form.hidden':
+    'prefix': 'f:form.hidden'
+    'body': '<f:form.hidden name="$1" value="$2" />'
+  'f:form.select':
+    'prefix': 'f:form.select'
+    'body': '<f:form.select property="$1" options="$2" ${3:optionLabelField="$4" }/>'
+  'f:form.submit':
+    'prefix': 'f:form.submit'
+    'body': '<f:form.submit value="${1:{f:translate(key:\'$2\')\\}}" />'
+  'f:form.textfield':
+    'prefix': 'f:form.textfield'
+    'body': '<f:form.textfield ${1:property="$2"} ${3:value="$4" name="$5"} ${6:placeholder="$7"} />'
+  'f:form.textarea':
+    'prefix': 'f:form.textarea'
+    'body': '<f:form.textarea property="$1" rows="${2:3}" cols="${3:80}" />'
+  'f:if Inline':
+    'prefix': 'f:if'
+    'body': '{f:if(condition:\'{$1} ${2:== $3}\' then:\'$4\')}'
+  'f:if Tag':
+    'prefix': 'f:if'
+    'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}\n</f:if>\n'
+  'f:layout':
+    'prefix': 'f:layout'
+    'body': '<f:layout name="$1" />'
+  'f:uri.action':
+    'prefix': 'f:uri.action'
+    'body': '<f:uri.action ${1:controller="$2" }${3:action="$4" }${5:arguments="$6" } />$7'
+  'f:link.action':
+    'prefix': 'f:link.action'
+    'body': '<f:link.action ${1:controller="$2" }${3:action="$4" }${5:arguments="$6" }>$7</f:link.action>'
+  'f:render':
+    'prefix': 'f:render'
+    'body': '<f:render ${1:section="$2" }${3:partial="$4" }${5:arguments="{$6\\}"}/>'
+  'f:renderFlashMessages':
+    'prefix': 'f:renderFlashMessages'
+    'body': '<f:renderFlashMessages style="background-color: #dfd; padding: 12px;" />'
+  'f:section':
+    'prefix': 'f:section'
+    'body': '<f:section name="$1">\n\t$2\n</f:section>'
+  'f:translate Inline':
+    'prefix': 'f:translate'
+    'body': '{f:translate(key: \'$1\', ${2:arguments:{0: \'$3\'\\}})}'
+  'f:translate Tag':
+    'prefix': 'f:translate'
+    'body': '<f:translate key="$1" />'
