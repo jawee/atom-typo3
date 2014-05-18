@@ -1,13 +1,12 @@
+'name': 'TypoScript'
+'scopeName': 'source.typoscript'
 'fileTypes': [
-  'ext_typoscript_setup.txt'
-  'ext_typoscript_constants.txt'
-  'page-config.ts'
-  'setup.txt'
+  'ts'
+  'txt'
 ]
 'foldingStartMarker': '/\\*\\*|\\{\\s*$'
 'foldingStopMarker': '\\*\\*/|^\\s*\\}'
 'include': '#typo_defined_properties'
-'name': 'TypoScript'
 'patterns': [
   {
     'captures':
@@ -175,4 +174,3 @@
   'typo_top_level_objects':
     'match': '\\b(config|lib|styles|(plugin.tx_\\w*)|temp|config|page|tt_\\w*)\\b'
     'name': 'variable.language.top_level.typoscript'
-'scopeName': 'source.typoscript'

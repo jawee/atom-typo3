@@ -1,4 +1,4 @@
-'*':
+'.text.html':
   'f:be.container':
     'prefix': 'f:be.container'
     'body': '<f:be.container pageTitle="$1">\n\t$2\n</f:be.container>'

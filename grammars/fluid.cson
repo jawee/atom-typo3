@@ -1,3 +1,5 @@
+'name': 'Fluid'
+'scopeName': 'text.html.basic'
 'fileTypes': [
   'html'
   'htm'
@@ -13,7 +15,6 @@
 'firstLineMatch': '<!DOCTYPE|<(?i:html)|<\\?(?i:php)'
 'foldingStartMarker': '(?x)\n\t\t(<(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl|f:if|f:then|f:else|f:form)\\b.*?>\n\t\t|<!--(?!.*--\\s*>)\n\t\t|^<!--\\ \\#tminclude\\ (?>.*?-->)$\n\t\t|<\\?(?:php)?.*\\b(if|for(each)?|while)\\b.+:\n\t\t|\\{\\{?(if|foreach|capture|literal|foreach|php|section|strip)\n\t\t|\\{\\s*($|\\?>\\s*$|//|/\\*(.*\\*/\\s*$|(?!.*?\\*/)))\n\t\t)'
 'foldingStopMarker': '(?x)\n\t\t(</(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl|f:if|f:then|f:else|f:form)>\n\t\t|^(?!.*?<!--).*?--\\s*>\n\t\t|^<!--\\ end\\ tminclude\\ -->$\n\t\t|<\\?(?:php)?.*\\bend(if|for(each)?|while)\\b\n\t\t|\\{\\{?/(if|foreach|capture|literal|foreach|php|section|strip)\n\t\t|^[^{]*\\}\n\t\t)'
-'name': 'Fluid'
 'patterns': [
   {
     'begin': '(<)([a-zA-Z0-9:]++)(?=[^>]*></\\2>)'
@@ -507,4 +508,3 @@
         'include': '#embedded-code'
       }
     ]
-'scopeName': 'text.html.basic'

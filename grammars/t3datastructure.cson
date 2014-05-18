@@ -1,10 +1,11 @@
+'name': 'T3DataStructure'
+'scopeName': 'text.xml.t3datastructure'
 'fileTypes': [
   'tml'
   'xml'
 ]
 'foldingStartMarker': '^\\s*(<[^!?%/](?!.+?(/>|</.+?>))|<[!%]--(?!.+?--%?>)|<%[!]?(?!.+?%>))'
 'foldingStopMarker': '^\\s*(</[^>]+>|[/%]>|-->)\\s*$'
-'name': 'T3DataStructure'
 'patterns': [
   {
     'begin': '(<\\?)\\s*([-_a-zA-Z0-9]+)'
@@ -240,4 +241,3 @@
         'include': '#singlequotedString'
       }
     ]
-'scopeName': 'text.xml.t3datastructure'
