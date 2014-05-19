@@ -1,5 +1,5 @@
 'name': 'Fluid'
-'scopeName': ''
+'scopeName': 'text.html.php'
 'fileTypes': [
   'html'
   'htm'
@@ -12,7 +12,7 @@
   'tpl'
   'ctp'
 ]
-'firstLineMatch': '<!DOCTYPE|<(?i:html)|<\\?(?i:php)'
+#'firstLineMatch': '<!DOCTYPE|<(?i:html)|<\\?(?i:php)'
 'foldingStartMarker': '(?x)\n\t\t(<(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl|f:if|f:then|f:else|f:form)\\b.*?>\n\t\t|<!--(?!.*--\\s*>)\n\t\t|^<!--\\ \\#tminclude\\ (?>.*?-->)$\n\t\t|<\\?(?:php)?.*\\b(if|for(each)?|while)\\b.+:\n\t\t|\\{\\{?(if|foreach|capture|literal|foreach|php|section|strip)\n\t\t|\\{\\s*($|\\?>\\s*$|//|/\\*(.*\\*/\\s*$|(?!.*?\\*/)))\n\t\t)'
 'foldingStopMarker': '(?x)\n\t\t(</(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl|f:if|f:then|f:else|f:form)>\n\t\t|^(?!.*?<!--).*?--\\s*>\n\t\t|^<!--\\ end\\ tminclude\\ -->$\n\t\t|<\\?(?:php)?.*\\bend(if|for(each)?|while)\\b\n\t\t|\\{\\{?/(if|foreach|capture|literal|foreach|php|section|strip)\n\t\t|^[^{]*\\}\n\t\t)'
 'patterns': [
