@@ -1,6 +1,6 @@
 {
   "name": "typo3",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Typo3 support for Atom",
   "repository": "https://github.com/jawee/atom-typo3.git",
   "license": "MIT",
