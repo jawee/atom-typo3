@@ -1,12 +1,11 @@
 'name': 'Fluid'
-'scopeName': 'text.html.php'
+'scopeName': 'text.html'
 'fileTypes': [
   'html'
   'htm'
   'shtml'
   'xhtml'
   'phtml'
-  'php'
   'inc'
   'tmpl'
   'tpl'
