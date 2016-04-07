@@ -11,6 +11,9 @@
   'f:cObject':
     'prefix': 'f:cObject'
     'body': '<f:cObject typoscriptObjectPath="$1" />'
+  'f:comment':
+    'prefix': 'f:comment'
+    'body': '<f:comment>$1</f:comment>'
   'f:count':
     'prefix': 'f:count'
     'body': '<f:count subject="{$1}" />'
@@ -23,7 +26,6 @@
   'f:escape':
     'prefix': 'f:escape'
     'body': '<f:escape ${1:type="$2"}>$3</f:escape>$4'
-'.text.html':
   'f:for':
     'prefix': 'f:for'
     'body': '<f:for each="{$1}" as="$2"${3:key="$4" }>\n\t$5\n</f:for>'
