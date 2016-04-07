@@ -11,6 +11,9 @@
   'f:cObject':
     'prefix': 'f:cObject'
     'body': '<f:cObject typoscriptObjectPath="$1" />'
+  'f:comment':
+    'prefix': 'f:comment'
+    'body': '<f:comment>$1</f:comment>'
   'f:count':
     'prefix': 'f:count'
     'body': '<f:count subject="{$1}" />'
