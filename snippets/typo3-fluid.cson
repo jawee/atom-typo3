@@ -50,12 +50,24 @@
   'f:form.textarea':
     'prefix': 'f:form.textarea'
     'body': '<f:form.textarea property="$1" rows="${2:3}" cols="${3:80}" />'
+  'f:format.html':
+    'prefix': 'f:format.html'
+    'body': '<f:format.html>{$1}<f:format.html>'
+  'f:format.nl2br':
+    'prefix': 'f:format.nl2br'
+    'body': '<f:format.nl2br>{$1}<f:format.nl2br>'
+  'f:format.raw':
+    'prefix': 'f:format.raw'
+    'body': '<f:format.raw>{$1}<f:format.raw>'
   'f:if Inline':
     'prefix': 'f:if'
     'body': '{f:if(condition:\'{$1} ${2:== $3}\' then:\'$4\')}'
   'f:if Tag':
     'prefix': 'f:if'
-    'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}\n</f:if>\n'
+    'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}</f:if>\n'
+  'f:image':
+    'prefix': 'f:image'
+    'body': '<f:image src="$1" />'
   'f:layout':
     'prefix': 'f:layout'
     'body': '<f:layout name="$1" />'
