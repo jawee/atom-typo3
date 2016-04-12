@@ -55,7 +55,7 @@
     'body': '{f:if(condition:\'{$1} ${2:== $3}\' then:\'$4\')}'
   'f:if Tag':
     'prefix': 'f:if'
-    'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}\n</f:if>\n'
+    'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}</f:if>\n'
   'f:image':
     'prefix': 'f:image'
     'body': '<f:image src="$1" />'
