@@ -60,10 +60,10 @@
     'prefix': 'f:format.raw'
     'body': '<f:format.raw>{$1}<f:format.raw>'
   'f:if Inline':
-    'prefix': 'f:if'
+    'prefix': 'f:if Inline'
     'body': '{f:if(condition:\'{$1} ${2:== $3}\' then:\'$4\')}'
   'f:if Tag':
-    'prefix': 'f:if'
+    'prefix': 'f:if Tag'
     'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}</f:if>'
   'f:image':
     'prefix': 'f:image'
@@ -87,8 +87,8 @@
     'prefix': 'f:section'
     'body': '<f:section name="$1">\n\t$2\n</f:section>'
   'f:translate Inline':
-    'prefix': 'f:translate'
+    'prefix': 'f:translate Inline'
     'body': '{f:translate(key: \'$1\', ${2:arguments:{0: \'$3\'\\}})}'
   'f:translate Tag':
-    'prefix': 'f:translate'
+    'prefix': 'f:translate Tag'
     'body': '<f:translate key="$1" />'
