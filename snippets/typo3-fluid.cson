@@ -34,7 +34,7 @@
     'body': '<f:form action="$1" ${2:controller="$3" }${4:object="{$5\\}" }${6:name="$7" }${8:package="$9" }${10:enctype="${11:multipart/form-data}" }>\n\t$12\n</f:form>'
   'f:form.errors':
     'prefix': 'f:form.errors'
-    'body': '<f:form.errors>\n\t{error.code} / {error.message}\n\t${1:<ul>\n\t\t<f:for each="{error.errors}" as="errorDetail">\n\t\t\t<li>{errorDetail.code\\} / {errorDetail.message\\} / {errorDetail.propertyName\\}</li>\n\t\t\t${2:<ul>\n\t\t\t\t<f:for each="{errorDetail.errors\\}" as="errorSuperDetail">\n\t\t\t\t\t<li>{errorSuperDetail.code\\}  {errorDetail.message\\}</li>\n\t\t\t\t</f:for>\n\t\t\t</li>\n\t\t</ul>}\n\t\t</f:for>\n\t</ul>}\n</f:form.errors>$3\n'
+    'body': '<f:form.errors>\n\t{error.code} / {error.message}\n\t${1:<ul>\n\t\t<f:for each="{error.errors}" as="errorDetail">\n\t\t\t<li>{errorDetail.code\\} / {errorDetail.message\\} / {errorDetail.propertyName\\}</li>\n\t\t\t${2:<ul>\n\t\t\t\t<f:for each="{errorDetail.errors\\}" as="errorSuperDetail">\n\t\t\t\t\t<li>{errorSuperDetail.code\\}  {errorDetail.message\\}</li>\n\t\t\t\t</f:for>\n\t\t\t</li>\n\t\t</ul>}\n\t\t</f:for>\n\t</ul>}\n</f:form.errors>$3'
   'f:form.hidden':
     'prefix': 'f:form.hidden'
     'body': '<f:form.hidden name="$1" value="$2" />'
@@ -64,7 +64,7 @@
     'body': '{f:if(condition:\'{$1} ${2:== $3}\' then:\'$4\')}'
   'f:if Tag':
     'prefix': 'f:if'
-    'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}</f:if>\n'
+    'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}</f:if>'
   'f:image':
     'prefix': 'f:image'
     'body': '<f:image src="$1" />'
