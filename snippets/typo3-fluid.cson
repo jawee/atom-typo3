@@ -61,7 +61,7 @@
     'body': '<f:format.raw>{$1}<f:format.raw>'
   'f:if Inline':
     'prefix': 'f:if:inline'
-    'body': '{f:if(condition:\'{$1} ${2:== $3}\' then:\'$4\')}'
+    'body': '{f:if(condition: $1, then: \'$2\')}'
   'f:if Tag':
     'prefix': 'f:if'
     'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}</f:if>'
