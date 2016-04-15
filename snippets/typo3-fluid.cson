@@ -34,7 +34,7 @@
     'body': '<f:form action="$1" ${2:controller="$3" }${4:object="{$5\\}" }${6:name="$7" }${8:package="$9" }${10:enctype="${11:multipart/form-data}" }>\n\t$12\n</f:form>'
   'f:form.errors':
     'prefix': 'f:form.errors'
-    'body': '<f:form.errors>\n\t{error.code} / {error.message}\n\t${1:<ul>\n\t\t<f:for each="{error.errors}" as="errorDetail">\n\t\t\t<li>{errorDetail.code\\} / {errorDetail.message\\} / {errorDetail.propertyName\\}</li>\n\t\t\t${2:<ul>\n\t\t\t\t<f:for each="{errorDetail.errors\\}" as="errorSuperDetail">\n\t\t\t\t\t<li>{errorSuperDetail.code\\}  {errorDetail.message\\}</li>\n\t\t\t\t</f:for>\n\t\t\t</li>\n\t\t</ul>}\n\t\t</f:for>\n\t</ul>}\n</f:form.errors>$3\n'
+    'body': '<f:form.errors>\n\t{error.code} / {error.message}\n\t${1:<ul>\n\t\t<f:for each="{error.errors}" as="errorDetail">\n\t\t\t<li>{errorDetail.code\\} / {errorDetail.message\\} / {errorDetail.propertyName\\}</li>\n\t\t\t${2:<ul>\n\t\t\t\t<f:for each="{errorDetail.errors\\}" as="errorSuperDetail">\n\t\t\t\t\t<li>{errorSuperDetail.code\\}  {errorDetail.message\\}</li>\n\t\t\t\t</f:for>\n\t\t\t</li>\n\t\t</ul>}\n\t\t</f:for>\n\t</ul>}\n</f:form.errors>$3'
   'f:form.hidden':
     'prefix': 'f:form.hidden'
     'body': '<f:form.hidden name="$1" value="$2" />'
@@ -50,21 +50,27 @@
   'f:form.textarea':
     'prefix': 'f:form.textarea'
     'body': '<f:form.textarea property="$1" rows="${2:3}" cols="${3:80}" />'
+  'f:format.crop':
+    'prefix': 'f:format.crop'
+    'body': '<f:format.crop maxCharacters="$1">$2<f:format.crop>'
   'f:format.html':
     'prefix': 'f:format.html'
-    'body': '<f:format.html>{$1}<f:format.html>'
+    'body': '<f:format.html>$1<f:format.html>'
   'f:format.nl2br':
     'prefix': 'f:format.nl2br'
-    'body': '<f:format.nl2br>{$1}<f:format.nl2br>'
+    'body': '<f:format.nl2br>$1<f:format.nl2br>'
   'f:format.raw':
     'prefix': 'f:format.raw'
-    'body': '<f:format.raw>{$1}<f:format.raw>'
+    'body': '<f:format.raw>$1<f:format.raw>'
   'f:if Inline':
-    'prefix': 'f:if'
-    'body': '{f:if(condition:\'{$1} ${2:== $3}\' then:\'$4\')}'
+    'prefix': 'f:if:inline'
+    'body': '{f:if(condition: $1, then: \'$2\')}'
   'f:if Tag':
     'prefix': 'f:if'
-    'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}</f:if>\n'
+    'body': '<f:if condition="{$1}$2">\n\t<f:then>\n\t\t$3\n\t</f:then>${4:\n\t<f:else>\n\t\t$5\n\t</f:else>\n}</f:if>'
+  'f:if Tag simple':
+    'prefix': 'f:if:simple'
+    'body': '<f:if condition="$1">\n\t$2\n</f:if>'
   'f:image':
     'prefix': 'f:image'
     'body': '<f:image src="$1" />'
@@ -87,7 +93,7 @@
     'prefix': 'f:section'
     'body': '<f:section name="$1">\n\t$2\n</f:section>'
   'f:translate Inline':
-    'prefix': 'f:translate'
+    'prefix': 'f:translate:inline'
     'body': '{f:translate(key: \'$1\', ${2:arguments:{0: \'$3\'\\}})}'
   'f:translate Tag':
     'prefix': 'f:translate'
