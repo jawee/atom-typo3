@@ -50,6 +50,9 @@
   'f:form.textarea':
     'prefix': 'f:form.textarea'
     'body': '<f:form.textarea property="$1" rows="${2:3}" cols="${3:80}" />'
+  'f:format.crop':
+    'prefix': 'f:format.crop'
+    'body': '<f:format.crop maxCharacters="$1">$2<f:format.crop>'
   'f:format.html':
     'prefix': 'f:format.html'
     'body': '<f:format.html>{$1}<f:format.html>'
