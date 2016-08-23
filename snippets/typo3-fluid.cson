@@ -83,6 +83,9 @@
   'f:link.action':
     'prefix': 'f:link.action'
     'body': '<f:link.action ${1:controller="$2" }${3:action="$4" }${5:arguments="$6" }>$7</f:link.action>'
+  'f:link.page':
+    'prefix': 'f:link.page'
+    'body': '<f:link.page pageUid="$1"${2: additionalParams="$3"}>$4</f:link.page>'
   'f:render':
     'prefix': 'f:render'
     'body': '<f:render ${1:section="$2" }${3:partial="$4" }${5:arguments="{$6\\}"}/>'
